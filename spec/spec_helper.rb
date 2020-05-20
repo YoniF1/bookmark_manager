@@ -4,9 +4,10 @@
 # this file to always be loaded, without a need to explicitly require it in any
 # files.
 # at the top of spec/spec_helper.rb
-
+require_relative './setup_test_database'
 # Set the environment to "test"
 ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
 
 # Bring in the contents of the `app.rb` file. The below is equivalent to: require_relative '../app.rb'
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
@@ -18,6 +19,12 @@ require 'rspec'
 
 # Tell Capybara to talk to BookmarkManager
 Capybara.app = BookmarkManager
+
+RSpec.configure do |config|
+  config.before(:each) do
+    setup_test_database
+  end
+end
 
 ### the rest of the file ###
 # Given that it is always loaded, you are encouraged to keep this file as
