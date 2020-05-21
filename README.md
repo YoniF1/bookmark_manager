@@ -4,6 +4,9 @@ As a user,
 So that I can see what websites or pages I've visited,
 I would like to have a list of bookmarks
 
+As a user,
+So that I can save a bookmark,
+I would like to add a bookmark
 
 In order to set up this database for this web app:
 1. Connect to psql - making sure to install postrgesql via Homebrew
