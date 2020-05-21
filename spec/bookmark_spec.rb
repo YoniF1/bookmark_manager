@@ -23,5 +23,27 @@ describe Bookmark do
       Bookmark.delete(id: bookmark.id)
       expect(Bookmark.all.length).to eq 0
     end
-  end 
+  end
+
+  describe '#update' do
+    it 'updates a bookmark' do
+      bookmark = Bookmark.add(url: 'http://www.google.com', title: 'Google')
+      updated_bookmark = Bookmark.update(id: bookmark.id, url: 'http://www.bbc.co.uk', title: 'BBC')
+      expect(updated_bookmark).to be_a Bookmark
+      expect(updated_bookmark.id).to eq bookmark.id
+      expect(updated_bookmark.title).to eq 'BBC'
+      expect(updated_bookmark.url).to eq 'http://www.bbc.co.uk'
+    end
+  end
+
+  describe '#find' do
+    it 'finds the bookmark they have entered' do
+    bookmark = Bookmark.add(title: "Google", url: 'http://www.google.com')
+    result = Bookmark.find(id: bookmark.id)
+    expect(result).to be_a Bookmark
+    expect(result.id).to eq bookmark.id
+    expect(result.title).to eq 'Google'
+    expect(result.url).to eq 'http://www.google.com'
+    end 
+  end
 end

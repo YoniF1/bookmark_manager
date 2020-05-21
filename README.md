@@ -12,6 +12,10 @@ As a user,
 So that I can remove a bookmark from bookmark manager,
 I would like to delete a bookmark
 
+As a user,
+So that I can change a book mark from bookmark manager,
+I would like to update a bookmark
+
 In order to set up this database for this web app:
 1. Connect to psql - making sure to install postrgesql via Homebrew
 2. Create a new database called bookmark_manager using CREATE DATABASE syntax
